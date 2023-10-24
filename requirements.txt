@@ -2,3 +2,4 @@ scrapy==2.9.0
 Twisted==22.10.0
 ipython==7.34.0
 urllib3==1.26.6
+black==23.3.0
