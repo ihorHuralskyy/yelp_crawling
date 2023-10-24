@@ -1,0 +1,18 @@
+VENV = venv
+BIN=$(VENV)/bin
+
+# make it work on windows too
+ifeq ($(OS), Windows_NT)
+    BIN=$(VENV)/Scripts
+    PY=python
+endif
+
+$(VENV):$(BIN)/activate
+	. ./$(BIN)/activate
+
+$(BIN)/activate: requirements.txt
+	virtualenv $(VENV)
+	$(BIN)/pip install -Ur requirements.txt
+
+clean:
+	rm -rf $(VENV)
